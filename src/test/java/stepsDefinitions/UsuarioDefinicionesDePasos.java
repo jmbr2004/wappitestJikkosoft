@@ -66,7 +66,6 @@ public class UsuarioDefinicionesDePasos {
 
 	@Entonces("^Se muestra a \"([^\"]*)\" un mensaje \"([^\"]*)\"$")
 	public void se_muestra_a_un_mensaje(String arg1, String arg2) {
-	    // Write code here that turns the phrase above into concrete actions
 	   	usuario.isCalled(arg1);
 		usuario.validarCompraSinCupon(arg2);
 	}
@@ -74,14 +73,20 @@ public class UsuarioDefinicionesDePasos {
 	@Cuando("^\"([^\"]*)\" da clic en obtener cupon de bienvenida y copia el codigo del cupon$")
 	public void da_clic_en_obtener_cupon_de_bienvenida_y_copia_el_codigo_del_cupon(String arg1) {
 		usuario.isCalled(arg1);
-		usuario.selecciBotCupon();
+		usuario.goBotCupon();
 		usuario.copiaCodCupon();
-		usuario.cerrBotCupon();
+		usuario.goBotCerrCupon();
 	}
 
 	@Cuando("^\"([^\"]*)\" da clic en Inicio$")
 	public void da_clic_en_Inicio(String arg1) {
 		usuario.isCalled(arg1);
 		usuario.irBotInicio();
+	}
+	
+	@Cuando("^\"([^\"]*)\" e ingresa el cupon da clic en confirmar pedido$")
+	public void e_ingresa_el_cupon_da_clic_en_confirmar_pedido(String arg1) {
+		usuario.isCalled(arg1);
+		usuario.confCompCup();
 	}
 }
