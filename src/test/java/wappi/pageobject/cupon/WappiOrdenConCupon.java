@@ -22,7 +22,7 @@ public class WappiOrdenConCupon extends PageObject {
 	@FindBy(css = "app-root:nth-child(1) app-coupon-modal:nth-child(2) div.modal.opened div.modal-content > span.close:nth-child(1)")
 	WebElementFacade botonCerrarPopup;
 
-	@FindBy(xpath = "//span[@id='coupon-code']")
+	@FindBy(xpath = "//input[@id='coupon']")
 	WebElementFacade textoCodigoCupon;
 	
 	@FindBy(linkText = "Inicio")
@@ -56,6 +56,6 @@ public class WappiOrdenConCupon extends PageObject {
 	public void obtenerCofigoCupon() {
 		
 		String codigo = textoCodigoCupon.findElement(By.xpath("//*[@id=\"coupon-code\"]")).getAttribute("innerHTML");
-		
+		textoCodigoCupon.type(codigo);
 	}
 }
