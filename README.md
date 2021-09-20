@@ -3,16 +3,20 @@ Un proyecto donde se ejemplifica el uso del patrón PageObjec usando serenity  B
 
 Las pruebas de este ejemplo se corren contra la página web https://automation-wappi.vercel.app/.
 
-Por defecto, los tests corren en Chrome, así que es necesario tener instalada la última versión del chrome driver y tenerla agregada como una variable en el path del sistema.
-
+Por defecto, los tests corren en Chrome, así que es necesario tener instalada la versión del chrome driver del equipo donde se correrá y tenerla agregada en la ruta del proyecto
+\src\test\resources\webdriver
 La estructura completa del proyecto es la siguiente:
 
 + model
-    Clases que usan el patrón object builder o relcionadas con el modelo de dominio
+    Clases que usan el patrón Page object builder o relcionadas con el modelo de dominio
 + stepsDefinitions
-    Clases que representan tareas que realiza el actor a nivel de proceso de negocio
-+ interacion ()
+    Clase que representan tareas que realiza el actor a nivel de proceso de negocio
++ steps
+    Clase que permite la comunicacion entre los features de cucumbre y las clases del patron Page Object 
++ interacion (clases que se encuentran en el paquete wappi.pageobject   cupon, login y update que no tienen la palabra resultado)
     Clases que representan las interacciones directas con la interfaz de usuario
++ validación de Resultados (clases que se encuentran en el paquete wappi.pageobject   cupon, login y update que contiene la palabra resultado)
+    Clases que representan las interacciones directas con la interfaz de usuario    
 + user_interface
     Page Objects y Page Elements. Mapean los objetos de la interfaz de usuario
 + features
@@ -24,7 +28,7 @@ Para correr el proyecto se necesita Java JDK 1.8 y Gradle preferiblemente con la
 Para correr el proyecto
 clean test aggregate es el comando que correrá los tests y generará el reporte en la carpeta /target/site/serenity/
 
-## Get the code
+## repositorio 
 
 Git:
     https://github.com/jmbr2004/wappitestJikkosoft
@@ -34,18 +38,23 @@ Git:
 
 ## Use Maven
 
-Open a command window and run:
+Abrir el commando window y correr:
 
     mvn clean verify
 
 ## Use Gradle
 
-Open a command window and run:
+Abrir el commando window y correr:
 
     gradlew test 
 
 
-## Viewing the reports
+## Visualizando los reportes
+Los comandos mencionados anteriormente generaran el reporte de Serenity test en el directorio `target/site/serenity` 
 
-Both of the commands provided above will produce a Serenity test report in the `target/site/serenity` directory. Go take a look!
+## Mejoras y sugerencias para la automaticación
+
+Que los elementos de la página se encuentren atados mas a la clase y el ID, esto permitirá acceder mas fácil a los elementos.
+
+al realizar el pedido con cupon se estaba validando mas con el modal que con el mensaje. 
 
