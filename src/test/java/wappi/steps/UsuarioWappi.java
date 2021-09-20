@@ -110,23 +110,27 @@ public class UsuarioWappi extends ScenarioActor {
 		assertFalse(IMensajesUsuarioWappi.CONFIRMACION_PEDIDO, esExitoso); 
 	}
 	
-	@Step("#actor selecciona el boton cupon")
-	public void selecciBotCupon() {
-		paginaConCupon.pedirCupon();
+	@Step("#actor va al boton cupon")
+	public void goBotCupon() {
+		paginaConCupon.irBotCup();
 	}
-	
-	@Step("#actor copia el codigo del cupon")
+		
+	@Step("#actor copia el codigo del cupony cierra popup")
 	public void copiaCodCupon() {
 		paginaConCupon.obtenerCofigoCupon();
 	}
-	
-	@Step("#actor cierra popup cupon")
-	public void cerrBotCupon() {
-		paginaConCupon.cerrarPopup();
+	@Step("#actor va al boton cupon")
+	public void goBotCerrCupon() {
+		paginaConCupon.irBotCerCup();
 	}
+	
 	@Step("#actor va al boton Inicio")
 	public void irBotInicio() {
 		paginaConCupon.irInicio();
 	}
 	
+	@Step("#actor ingresa el cupon y confirma la compra")
+	public void confCompCup() {
+		paginaConCupon.confirmarCompraCupon();
+	}
 }
